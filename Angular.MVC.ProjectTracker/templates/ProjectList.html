@@ -9,9 +9,9 @@
                 <div class="col-md-3"><strong>Priority</strong></div>
             </div>
         </li>
-            <li ng-repeat="project in projects">
+            <li ng-repeat="project in projects | orderBy : priority">
                 <div class="row">
-                    <div class="col-md-3">{{project.startdate}}</div>
+                    <div class="col-md-3">{{project.startdate | date : ShortDateFormat}}</div>
                     <div class="col-md-3">{{project.title}}</div>
                     <div class="col-md-3">{{project.status}}</div>
                     <div class="col-md-3">{{project.priority}}</div>
