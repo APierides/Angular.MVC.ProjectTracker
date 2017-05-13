@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body ng-app="ProjectTracker" ng-cloak>
+    <div id="TopNavSection" role="heading">
+        @{Html.RenderPartial("/Views/_Header.cshtml"); }
+    </div>
+    <div  id="content" class="container" role="main">
+        @RenderBody()
+    </div>
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
+    <script src="/Scripts/angular-cookies.min.js"></script>
+   
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/ProjectListController.js"></script>
+</body>
+
+
+</html>
+
