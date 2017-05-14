@@ -1,4 +1,4 @@
-﻿var ProjectTracker = angular.module('ProjectTracker', ['ngRoute']);
+﻿var ProjectTracker = angular.module('ProjectTracker', ['ngRoute','ngResource']);
 ProjectTracker.config(function ($routeProvider) {
     $routeProvider.when('/projects', {
         templateUrl: '/templates/ProjectList.html',

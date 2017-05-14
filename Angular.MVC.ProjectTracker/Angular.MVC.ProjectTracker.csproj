@@ -103,6 +103,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\ProjectListController.js" />
+    <Content Include="app\services\ProjectService.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -898,6 +899,7 @@
     <Content Include="Views\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ProjectController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -921,7 +923,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\services\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>

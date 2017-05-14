@@ -17,7 +17,16 @@ namespace Angular.MVC.ProjectTracker
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            var config = GlobalConfiguration.Configuration;
+            ConfigureApi(config);
+        }
+        void ConfigureApi(HttpConfiguration config)
+        {
+         
+
+            // Remove the XML formatter
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }
