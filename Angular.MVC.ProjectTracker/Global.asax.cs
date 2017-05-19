@@ -9,6 +9,9 @@ using System.Web.SessionState;
 using System.Web.Http;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Angular.MVC.ProjectTracker;
+using Interface.Layer.ProjectTracker.Interfaces;
+using Angular.MVC.ProjectTracker.Code;
 
 namespace Angular.MVC.ProjectTracker
 {
@@ -21,16 +24,16 @@ namespace Angular.MVC.ProjectTracker
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             var config = GlobalConfiguration.Configuration;
-            var context = (HttpContext)sender; 
-      
+            
             ConfigureApi(config);
         }
-        void ConfigureApi(HttpConfiguration config)
+        public static void ConfigureApi(HttpConfiguration config)
         {
-         
-
-            // Remove the XML formatter
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            var container = new  UnityContainer();
+             
+          //  container.RegisterType<IProjectRepository,ProjectRepository>(new HierarchicalLifetimeManager());
+            config.DependencyResolver = new UnityDependencyResolver(container);
+          //  config.DependencyResolver
         }
     }
 }

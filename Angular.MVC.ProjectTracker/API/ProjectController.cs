@@ -13,20 +13,21 @@ namespace Angular.MVC.ProjectTracker.API
     public class ProjectController : ApiController
     {
         [Dependency]
-        private IProjectManager _ProjectManager { get; set; }
+        private IProjectRepository _ProjectManager { get; set; }
         // GET api/<controller>
-        public IEnumerable<object> Get()
-        //{   var projects = new  { startdate: new Date(), title: 'Static Sample', status: 'I', priority: 'H' },
-        //                    new  { startdate: new Date(), title: 'Static Sample 2', status: 'C', priority: 'M' }];
+
+        public ProjectController (IProjectRepository projectManager)
         {
-            BuildUpUnityContainer(); 
+            _ProjectManager = projectManager;
+        }
+        public IEnumerable<object> Get()
+        
+        {
 
-            var projects = new[] {
-                                new { StartDate = DateTime.Now,   Title = "Static Sample",    Status = "I",  Priority = "H" },
-                                new { StartDate = DateTime.Now,   Title = "Static Sample 2",    Status = "C",  Priority = "M" }
-                                };
+           return _ProjectManager.GetAllProjects();
+ 
 
-            return projects;
+           // return projects;
         }
 
         private void BuildUpUnityContainer()
