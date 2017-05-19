@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interface.Layer.ProjectTracker.Interfaces
 {
-    public interface IProjectManager
+    public interface IProjectRepository
     {
          List<Project> GetAllProjects();
          Project  GetProject(int ID);
