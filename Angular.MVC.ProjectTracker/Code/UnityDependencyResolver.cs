@@ -16,6 +16,7 @@ namespace Angular.MVC.ProjectTracker.Code
             if (container == null)
             {
                 throw new ArgumentNullException("container");
+
             }
             this.container = container;
         }
