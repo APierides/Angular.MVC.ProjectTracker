@@ -4,9 +4,4 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_4</DefineConstants>
-    <OutputPath>bin\Debug\netstandard1.4\</OutputPath>
-  </PropertyGroup>
-
 </Project>
