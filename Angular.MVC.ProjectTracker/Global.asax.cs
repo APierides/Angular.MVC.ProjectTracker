@@ -30,6 +30,7 @@ namespace Angular.MVC.ProjectTracker
         public static void ConfigureApi(HttpConfiguration config)
         {
             var container = new  UnityContainer();
+            container.LoadConfiguration("application");
              
           //  container.RegisterType<IProjectRepository,ProjectRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityDependencyResolver(container);
