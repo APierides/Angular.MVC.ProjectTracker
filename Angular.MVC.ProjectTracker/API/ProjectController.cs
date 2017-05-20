@@ -12,19 +12,27 @@ namespace Angular.MVC.ProjectTracker.API
 {
     public class ProjectController : ApiController
     {
+        private IProjectRepository _projectRepository;
+
         [Dependency]
-        private IProjectRepository _ProjectManager { get; set; }
+        public IProjectRepository projectRepository {
+            get { return _projectRepository; }
+            set { _projectRepository = value; }
+        }
         // GET api/<controller>
 
-        public ProjectController (IProjectRepository projectManager)
-        {
-            _ProjectManager = projectManager;
-        }
+
+        //constructor injection
+
+        //public ProjectController (IProjectRepository projectManager)
+        //{
+        //    _projectRepository = projectManager;
+        //}
         public IEnumerable<object> Get()
         
         {
 
-           return _ProjectManager.GetAllProjects();
+           return _projectRepository.GetAllProjects();
  
 
            // return projects;

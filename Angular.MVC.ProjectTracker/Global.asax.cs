@@ -12,7 +12,6 @@ using Microsoft.Practices.Unity.Configuration;
 using Angular.MVC.ProjectTracker;
 using Interface.Layer.ProjectTracker.Interfaces;
 using Angular.MVC.ProjectTracker.Code;
-
 namespace Angular.MVC.ProjectTracker
 {
     public class Global : HttpApplication
@@ -28,7 +27,9 @@ namespace Angular.MVC.ProjectTracker
             ConfigureApi(config);
         }
         public static void ConfigureApi(HttpConfiguration config)
-        {
+        { // Remove the XML formatter
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
             var container = new  UnityContainer();
             container.LoadConfiguration("application");
              
