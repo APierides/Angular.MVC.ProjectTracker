@@ -13,12 +13,22 @@ namespace Entity.Sql.ProjectTracker
     {
         public List<Project> GetAllProjects()
         {
-            var projects = new List<Project>() {
-                                new  Project(){ID=1, StartDate = DateTime.Now.AddDays(-3),
-                                    Title = "Static Sample",
-                                    Status = "I",  Priority = "H" },
-                              new  Project(){ID=2, StartDate = DateTime.Now.AddDays(-2) ,   Title = "Static Sample 2",    Status = "C",  Priority = "M" }
-                                };
+            var projects = new List<Project>();
+            using (ProjectTrackerContainer container = new ProjectTrackerContainer())
+            {
+                var proj = container.dProjects.Select(x => x);
+                projects = (from p in proj
+                            select new Project()
+                            {
+                                DueDate = p.DueDate,
+                                Priority = p.Priority,
+                                Title = p.Title,
+                                StartDate = p.StartDate,
+                                Status = p.Status,
+                                ID = p.Id
+                            }).ToList();
+            }
+
 
             return projects;
         }
@@ -30,7 +40,7 @@ namespace Entity.Sql.ProjectTracker
                 var dProj = container.dProjects.Find(ID);
                 if (dProj == null)
                     return null;
-                
+
                 proj = new Project()
                 {
                     Title = dProj.Title,

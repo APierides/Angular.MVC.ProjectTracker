@@ -1,4 +1,5 @@
 ﻿using Interface.Layer.ProjectTracker.Interfaces;
+using Interface.Layer.ProjectTracker.Models;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System;
@@ -53,8 +54,9 @@ namespace Angular.MVC.ProjectTracker.API
       
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Project proj)
         {
+            _projectRepository.CreateProject(proj);
         }
 
         // PUT api/<controller>/5
