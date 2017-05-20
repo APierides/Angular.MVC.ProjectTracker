@@ -1,7 +1,7 @@
 ﻿ProjectTracker.controller('ProjectListController',
     function ProjectListController($scope,$locale,projectService,$log) {
         $scope.CheckItsWorking = "It Worked!";
-        console.log($locale);
+
         $scope.ShortDateFormat = $locale.DATETIME_FORMATS.mediumDate;
         projectService.getProjects()
             .$promise

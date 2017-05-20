@@ -31,11 +31,18 @@ namespace Angular.MVC.ProjectTracker.API
         public IEnumerable<object> Get()
         
         {
-
-           return _projectRepository.GetAllProjects();
+          return _projectRepository.GetAllProjects();
  
+        }
+       
+        public object GetProject(int id)
 
-           // return projects;
+        {
+
+            return _projectRepository.GetProject(id);
+
+
+            // return projects;
         }
 
         private void BuildUpUnityContainer()
@@ -43,11 +50,7 @@ namespace Angular.MVC.ProjectTracker.API
 
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+      
 
         // POST api/<controller>
         public void Post([FromBody]string value)

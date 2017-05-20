@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.MVC.ProjectTracker"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface.Layer.ProjectTracker", "Interface.Layer.ProjectTracker\Interface.Layer.ProjectTracker.csproj", "{FB86C5A0-C1C4-443C-9B15-0BD056C21F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity.Sql.ProjectTracker", "Entity.Sql.ProjectTracker\Entity.Sql.ProjectTracker.csproj", "{848C8695-E1B6-41E9-9B80-A03D31009CF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity.SQL.ProjectTracker", "Entity.SQL.ProjectTracker\Entity.SQL.ProjectTracker.csproj", "{538FBE58-0808-4B46-9A43-023872A2F6B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{FB86C5A0-C1C4-443C-9B15-0BD056C21F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB86C5A0-C1C4-443C-9B15-0BD056C21F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB86C5A0-C1C4-443C-9B15-0BD056C21F55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{848C8695-E1B6-41E9-9B80-A03D31009CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{848C8695-E1B6-41E9-9B80-A03D31009CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{848C8695-E1B6-41E9-9B80-A03D31009CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{848C8695-E1B6-41E9-9B80-A03D31009CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538FBE58-0808-4B46-9A43-023872A2F6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538FBE58-0808-4B46-9A43-023872A2F6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538FBE58-0808-4B46-9A43-023872A2F6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538FBE58-0808-4B46-9A43-023872A2F6B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

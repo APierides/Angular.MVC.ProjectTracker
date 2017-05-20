@@ -8,9 +8,10 @@ ProjectTracker.config(function ($routeProvider) {
         templateUrl: '/templates/AlertList.html',
         controller: 'AlertListController'
     })
-    $routeProvider.when('/AddProject', {
+    $routeProvider.when('/EditProject/:ProjectID?', {
         templateUrl: '/templates/ProjectEdit.html',
         controller: 'ProjectController'
     })
+ 
      .otherwise({ redirectTo : '/projects'})
 });
