@@ -1,15 +1,15 @@
 ﻿var ProjectTracker = angular.module('ProjectTracker', ['ngRoute','ngResource']);
 ProjectTracker.config(function ($routeProvider) {
     $routeProvider.when('/projects', {
-        templateUrl: '/templates/ProjectList.html',
+        templateUrl: '/app/templates/ProjectList.html',
         controller: 'ProjectListController'
     })
     $routeProvider.when('/Alerts', {
-        templateUrl: '/templates/AlertList.html',
+        templateUrl: '/app/templates/AlertList.html',
         controller: 'AlertListController'
     })
     $routeProvider.when('/EditProject/:ProjectID?', {
-        templateUrl: '/templates/ProjectEdit.html',
+        templateUrl: '/app/templates/ProjectEdit.html',
         controller: 'ProjectController'
     })
  

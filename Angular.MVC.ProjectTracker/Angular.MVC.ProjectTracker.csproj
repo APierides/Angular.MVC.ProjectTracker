@@ -917,8 +917,8 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="templates\ProjectEdit.html" />
-    <Content Include="templates\ProjectList.html" />
+    <Content Include="app\templates\ProjectEdit.html" />
+    <Content Include="app\templates\ProjectList.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

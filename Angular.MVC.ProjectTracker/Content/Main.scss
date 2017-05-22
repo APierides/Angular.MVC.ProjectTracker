@@ -1,2 +1,7 @@
-﻿body {
+﻿$alternateColour : rgba(235, 224, 224, 0.79);
+
+body {
 }
+
+.listAlt { background-color : $alternateColour;}
+ul{list-style:none;}

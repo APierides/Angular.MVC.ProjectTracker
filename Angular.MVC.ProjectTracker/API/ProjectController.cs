@@ -30,12 +30,12 @@ namespace Angular.MVC.ProjectTracker.API
         //    _projectRepository = projectManager;
         //}
         public IEnumerable<object> Get()
-        
+
         {
-          return _projectRepository.GetAllProjects();
- 
+            return _projectRepository.GetAllProjects();
+
         }
-       
+
         public object GetProject(int id)
 
         {
@@ -51,7 +51,7 @@ namespace Angular.MVC.ProjectTracker.API
 
         }
 
-      
+
 
         // POST api/<controller>
         public void Post([FromBody]Project proj)
@@ -60,8 +60,10 @@ namespace Angular.MVC.ProjectTracker.API
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]   
+        public void Put([FromBody]Project value)
         {
+            _projectRepository.UpdateProject(value);
         }
 
         // DELETE api/<controller>/5

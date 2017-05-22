@@ -55,21 +55,42 @@ namespace Entity.Sql.ProjectTracker
         }
         public int CreateProject(Project p)
         {
-            ProjectTrackerContainer container = new ProjectTrackerContainer();
-            var proj = new dProject()
+            using (ProjectTrackerContainer container = new ProjectTrackerContainer())
             {
-                Title = p.Title,
-                DueDate = p.DueDate,
-                StartDate = p.StartDate,
-                Status = p.Status,
-                Priority = p.Priority
-            };
-            container.dProjects.Add(proj);
-            container.SaveChanges();
+                var proj = new dProject()
+                {
+                    Title = p.Title,
+                    DueDate = p.DueDate,
+                    StartDate = p.StartDate,
+                    Status = p.Status,
+                    Priority = p.Priority
+                };
+                container.dProjects.Add(proj);
+                container.SaveChanges();
 
-            return container.dProjects.Where(x => x.Title == proj.Title && x.Status == proj.Status).Select(x => x.Id).SingleOrDefault();
+                return container.dProjects.Where(x => x.Title == proj.Title && x.Status == proj.Status).Select(x => x.Id).SingleOrDefault();
+            }
         }
 
-        public int UpdateProject(Project p) { return 0; }
+        public int UpdateProject(Project p)
+        {
+            using (ProjectTrackerContainer container = new ProjectTrackerContainer())
+            {
+                var proj = container.dProjects.Find(p.ID);
+                if (proj == null)
+                    return -1;
+                proj.Title = p.Title;
+                proj.DueDate = p.DueDate;
+                proj.StartDate = p.StartDate;
+                proj.Status = p.Status;
+                proj.Priority = p.Priority;
+
+                container.SaveChanges();
+
+
+                return container.dProjects.Where(x => x.Id == p.ID).Select(x => x.Id).SingleOrDefault();
+
+            }
+        }
     }
 }

@@ -1,10 +1,11 @@
 ﻿ProjectTracker.factory('projectService',
     function ($resource)
     {
-        var projs = $resource('/api/project/:ProjectID', { ProjectID: '@ProjectID' }, null, {
+        var projs = $resource('/api/project/:ProjectID', { ProjectID: '@ProjectID' }, {
             'update': {
                 method: 'PUT'
-            }
+            }, isArray: false
+       
         });
         
         return {

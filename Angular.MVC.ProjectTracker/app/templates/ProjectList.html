@@ -10,7 +10,7 @@
             </div>
         </li>
             <li ng-repeat="project in projects | orderBy : priority">
-                <div class="row">
+                <div class="row" ng-class-odd="'listAlt'">
                     <div class="col-md-3"><a href="#!/EditProject/{{project.ID}}">{{project.Title}}</a></div>
                     <div class="col-md-3">{{project.StartDate | date : ShortDateFormat}}</div>                 
                     <div class="col-md-3">{{project.Status | Status}}</div>

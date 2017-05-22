@@ -36,6 +36,6 @@
                 projectService.editProject(project);    
             console.log(project);
             $location.path('/');
-            $route.Reload();
+            $route.reload();
         }
     });
