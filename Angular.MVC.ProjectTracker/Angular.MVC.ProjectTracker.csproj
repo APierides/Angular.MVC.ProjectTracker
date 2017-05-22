@@ -118,6 +118,10 @@
     <Content Include="app\controllers\ProjectListController.js" />
     <Content Include="app\FilterEnumerators.js" />
     <Content Include="app\services\ProjectService.js" />
+    <Content Include="App_Data\DB\ProjectTracker.mdf" />
+    <Content Include="App_Data\DB\ProjectTracker_log.ldf">
+      <DependentUpon>ProjectTracker.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -950,9 +954,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Interface.Layer.ProjectTracker\Interface.Layer.ProjectTracker.csproj">
       <Project>{fb86c5a0-c1c4-443c-9b15-0bd056c21f55}</Project>

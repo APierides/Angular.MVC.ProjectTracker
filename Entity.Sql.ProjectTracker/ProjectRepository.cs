@@ -80,6 +80,7 @@ namespace Entity.Sql.ProjectTracker
                 if (proj == null)
                     return -1;
                 proj.Title = p.Title;
+                //
                 proj.DueDate = p.DueDate;
                 proj.StartDate = p.StartDate;
                 proj.Status = p.Status;
