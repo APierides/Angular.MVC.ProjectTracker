@@ -12,17 +12,13 @@ namespace Entity.SQL.ProjectTracker.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class dTask
+    public partial class dComponent
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Note { get; set; }
         public string Status { get; set; }
-        public string Priority { get; set; }
-        public System.DateTime DueDate { get; set; }
-        public Nullable<System.DateTime> DateCompleted { get; set; }
-        public System.DateTime LastUpdatedDate { get; set; }
-        public int dComponentId { get; set; }
+        public string Coordinator { get; set; }
+        public int dProjectId { get; set; }
     }
 }

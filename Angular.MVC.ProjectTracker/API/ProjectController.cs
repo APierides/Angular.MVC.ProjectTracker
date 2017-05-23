@@ -16,6 +16,7 @@ namespace Angular.MVC.ProjectTracker.API
         private IProjectRepository _projectRepository;
 
         [Dependency]
+        //setter injection
         public IProjectRepository projectRepository {
             get { return _projectRepository; }
             set { _projectRepository = value; }
@@ -46,10 +47,7 @@ namespace Angular.MVC.ProjectTracker.API
             // return projects;
         }
 
-        private void BuildUpUnityContainer()
-        {
-
-        }
+        
 
 
 

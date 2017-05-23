@@ -8,8 +8,13 @@
   <EntityContainer Name="ProjectTrackerDataModelStoreContainer">
     <EntitySet Name="dProjects" EntityType="ProjectTracker.DataModel.Store.dProjects" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="dTasks" EntityType="ProjectTracker.DataModel.Store.dTasks" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="dProjectdTask" Association="ProjectTracker.DataModel.Store.dProjectdTask">
+    <EntitySet Name="dComponents" EntityType="ProjectTracker.DataModel.Store.dComponents" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="dProjectdComponent" Association="ProjectTracker.DataModel.Store.dProjectdComponent">
       <End Role="dProject" EntitySet="dProjects" />
+      <End Role="dComponent" EntitySet="dComponents" />
+    </AssociationSet>
+    <AssociationSet Name="dComponentdTask" Association="ProjectTracker.DataModel.Store.dComponentdTask">
+      <End Role="dComponent" EntitySet="dComponents" />
       <End Role="dTask" EntitySet="dTasks" />
     </AssociationSet>
   </EntityContainer>
@@ -29,7 +34,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dProjectId" Type="int" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Note" Type="nvarchar(max)" Nullable="true" />
@@ -38,16 +42,40 @@
     <Property Name="DueDate" Type="datetime" Nullable="false" />
     <Property Name="DateCompleted" Type="datetime" Nullable="true" />
     <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="dComponentId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="dProjectdTask">
+  <EntityType Name="dComponents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Coordinator" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dProjectId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="dProjectdComponent">
     <End Role="dProject" Type="ProjectTracker.DataModel.Store.dProjects" Multiplicity="1" />
-    <End Role="dTask" Type="ProjectTracker.DataModel.Store.dTasks" Multiplicity="*" />
+    <End Role="dComponent" Type="ProjectTracker.DataModel.Store.dComponents" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="dProject">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="dTask">
+      <Dependent Role="dComponent">
         <PropertyRef Name="dProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="dComponentdTask">
+    <End Role="dComponent" Type="ProjectTracker.DataModel.Store.dComponents" Multiplicity="1" />
+    <End Role="dTask" Type="ProjectTracker.DataModel.Store.dTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dComponent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="dTask">
+        <PropertyRef Name="dComponentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -58,8 +86,13 @@
         <EntityContainer Name="ProjectTrackerContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="dProjects" EntityType="ProjectTracker.DataModel.dProject" />
           <EntitySet Name="dTasks" EntityType="ProjectTracker.DataModel.dTask" />
-          <AssociationSet Name="dProjectdTask" Association="ProjectTracker.DataModel.dProjectdTask">
+          <EntitySet Name="dComponents" EntityType="ProjectTracker.DataModel.dComponent" />
+          <AssociationSet Name="dProjectdComponent" Association="ProjectTracker.DataModel.dProjectdComponent">
             <End Role="dProject" EntitySet="dProjects" />
+            <End Role="dComponent" EntitySet="dComponents" />
+          </AssociationSet>
+          <AssociationSet Name="dComponentdTask" Association="ProjectTracker.DataModel.dComponentdTask">
+            <End Role="dComponent" EntitySet="dComponents" />
             <End Role="dTask" EntitySet="dTasks" />
           </AssociationSet>
         </EntityContainer>
@@ -79,8 +112,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="ProjectID" Relationship="ProjectTracker.DataModel.dProjectdTask" FromRole="dTask" ToRole="dProject" />
-          <Property Name="dProjectId" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
           <Property Name="Note" Type="String" Nullable="true" />
@@ -89,16 +120,40 @@
           <Property Name="DueDate" Type="DateTime" Nullable="false" />
           <Property Name="DateCompleted" Type="DateTime" Nullable="true" />
           <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="dComponentId" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="dProjectdTask">
+        <EntityType Name="dComponent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="Coordinator" Type="String" Nullable="false" />
+          <Property Name="dProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="dProjectdComponent">
           <End Type="ProjectTracker.DataModel.dProject" Role="dProject" Multiplicity="1" />
-          <End Type="ProjectTracker.DataModel.dTask" Role="dTask" Multiplicity="*" />
+          <End Type="ProjectTracker.DataModel.dComponent" Role="dComponent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="dProject">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="dTask">
+            <Dependent Role="dComponent">
               <PropertyRef Name="dProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dComponentdTask">
+          <End Type="ProjectTracker.DataModel.dComponent" Role="dComponent" Multiplicity="1" />
+          <End Type="ProjectTracker.DataModel.dTask" Role="dTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dComponent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dTask">
+              <PropertyRef Name="dComponentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -124,7 +179,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(ProjectTracker.DataModel.dTask)">
         <MappingFragment StoreEntitySet="dTasks">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="dProjectId" ColumnName="dProjectId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Note" ColumnName="Note" />
@@ -133,6 +187,19 @@
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
           <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
           <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="dComponentId" ColumnName="dComponentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dComponents">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectTracker.DataModel.dComponent)">
+        <MappingFragment StoreEntitySet="dComponents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
+          <ScalarProperty Name="dProjectId" ColumnName="dProjectId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

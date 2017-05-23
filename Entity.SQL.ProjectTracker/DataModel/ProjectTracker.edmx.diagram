@@ -6,8 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="6d075b2ce6054a6090b812488a4c31a4" Name="Diagram1" >
         <EntityTypeShape EntityType="ProjectTracker.DataModel.dProject" Width="1.5" PointX="1.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ProjectTracker.DataModel.dTask" Width="1.5" PointX="3.75" PointY="0.75" />
-        <AssociationConnector Association="ProjectTracker.DataModel.dProjectdTask" />
+        <EntityTypeShape EntityType="ProjectTracker.DataModel.dTask" Width="1.5" PointX="6.75" PointY="0.875" />
+        <EntityTypeShape EntityType="ProjectTracker.DataModel.dComponent" Width="1.5" PointX="4.125" PointY="1" />
+        <AssociationConnector Association="ProjectTracker.DataModel.dProjectdComponent" />
+        <AssociationConnector Association="ProjectTracker.DataModel.dComponentdTask" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

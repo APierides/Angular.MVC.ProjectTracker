@@ -27,5 +27,6 @@ namespace Entity.SQL.ProjectTracker.DataModel
     
         public virtual DbSet<dProject> dProjects { get; set; }
         public virtual DbSet<dTask> dTasks { get; set; }
+        public virtual DbSet<dComponent> dComponents { get; set; }
     }
 }

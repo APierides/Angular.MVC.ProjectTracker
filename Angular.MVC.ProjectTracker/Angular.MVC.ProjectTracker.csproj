@@ -113,6 +113,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app-angular2\app.js" />
+    <Content Include="app-angular2\controllers\ProjectController.js" />
+    <Content Include="app-angular2\controllers\ProjectListController.js" />
+    <Content Include="app-angular2\FilterEnumerators.js" />
+    <Content Include="app-angular2\services\ProjectService.js" />
+    <Content Include="app-angular2\templates\ProjectEdit.html" />
+    <Content Include="app-angular2\templates\ProjectList.html" />
     <Content Include="app\app.js" />
     <Content Include="app\controllers\ProjectController.js" />
     <Content Include="app\controllers\ProjectListController.js" />
@@ -930,7 +937,9 @@
     <Content Include="Views\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ComponentController.cs" />
     <Compile Include="API\ProjectController.cs" />
+    <Compile Include="API\TaskController.cs" />
     <Compile Include="Code\UnityDependencyResolver.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />

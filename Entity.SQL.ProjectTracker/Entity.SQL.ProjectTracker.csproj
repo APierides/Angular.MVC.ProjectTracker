@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\dComponent.cs">
+      <DependentUpon>ProjectTracker.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\dProject.cs">
       <DependentUpon>ProjectTracker.tt</DependentUpon>
     </Compile>
